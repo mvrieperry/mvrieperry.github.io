@@ -20,10 +20,10 @@ export const DATA = {
     education: { order: 3, enabled: true, heading: "Education" },
     skills: { order: 4, enabled: true, heading: "Skills" },
     projects: {
-      order: 5, enabled: false,
-      label: "My Projects",
-      heading: "Check out my latest work",
-      text: "A selection of projects I've worked on.",
+      order: 5, enabled: true,
+      label: "Projects",
+      heading: "Things I'm building for fun",
+      text: "Personal projects, half-finished experiments, and apps I built to scratch my own itch.",
     },
     hackathons: {
       order: 7, enabled: false,
@@ -220,6 +220,25 @@ export const DATA = {
       end: "2017",
     },
   ],
-  projects: [],
+  projects: [
+    {
+      title: "Garden Planner",
+      href: "https://github.com/mvrieperry/garden-planner",
+      dates: "2025",
+      active: true,
+      description:
+        "A small app to plan out my garden each season. Tracks what I'm growing, when to start seeds, and what's working (and what very much isn't).",
+      technologies: ["HTML", "JavaScript"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/mvrieperry/garden-planner",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+  ],
   hackathons: [],
 } as const;
