@@ -28,6 +28,11 @@ export default function PhotosSection() {
         </div>
         <div className="flex flex-col gap-y-3 items-center justify-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{DATA.sections.photos.heading}</h2>
+          {DATA.sections.photos.text && (
+            <p className="max-w-[600px] text-center text-muted-foreground">
+              {DATA.sections.photos.text}
+            </p>
+          )}
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 items-start">
           {[col1, col2, col3].map((col, colIdx) => (

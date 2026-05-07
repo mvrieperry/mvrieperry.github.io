@@ -3,15 +3,15 @@ import { House } from "lucide-react";
 import { Python } from "@/components/ui/svgs/python";
 
 export const DATA = {
-  name: "Marie-Christine Perry",
-  initials: "MCP",
+  name: "Marie Perry",
+  initials: "MP",
   url: "https://linkedin.com/in/marie-christine-perry",
   location: "Toronto, Canada",
   locationLink: "https://www.google.com/maps/place/toronto+canada",
   description:
-    "Product leader with hands-on LLM and Generative AI experience and a life-sciences research background in immunology and biologics.",
+    "Product leader working at the intersection of AI and life sciences, with a research background in immunology.",
   summary:
-    "I ship production AI systems end-to-end for enterprise pharma customers — from problem discovery through ML evaluation, launch, and iteration. My background spans [applied immunology research](/#education) and AI product leadership, combining technical depth in Python, RAG architectures, and LLM evals with deep domain fluency in scientific content and regulated life-sciences data. Currently building Adaptive Workflows at [Dotmatics](/#work) and completing a [Deploying AI credential](/#education).",
+    "I'm a product manager building AI products for the life-sciences industry, bridging [scientific research](/#education) and modern AI. My day-to-day is shaped by curiosity — the same kind that pulled me from a wet lab into product, and now into shipping LLM-powered tools.\n\nOutside of work, I spend as much time outdoors as possible. I love to travel, rock climb, and generally chase weather and good light. I also DJ — see [below](/#music) — and try to keep a film camera in my bag wherever I go.",
   avatarUrl: "/avatar.jpg",
   ogImage: "/og_image.png",
   sections: {
@@ -33,10 +33,17 @@ export const DATA = {
     },
     photos: {
       order: 6, enabled: true,
-      heading: "My Recent Travels",
+      heading: "Travels on Film",
+      text: "Every trip, I bring a roll of film. I love that I have to wait — getting the scans back weeks later is its own little present, and a chance to slow down and reflect on the trip.",
+    },
+    music: {
+      order: 8, enabled: true,
+      label: "Music",
+      heading: "DJ-ing",
+      text: "When I'm not at work or outside, I'm probably mixing. DJ-ing is my creative outlet — somewhere between a meditation and a party. Mostly house and disco, occasionally something weirder.",
     },
     contact: {
-      order: 8, enabled: true,
+      order: 9, enabled: true,
       label: "Contact",
       heading: "Get in Touch",
       text: "Want to chat? Feel free to reach out via email or LinkedIn — I'd love to connect.",

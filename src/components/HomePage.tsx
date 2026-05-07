@@ -117,6 +117,23 @@ const sectionComponents: Record<string, React.ReactNode> = {
     </section>
   ),
   photos: <PhotosSection />,
+  music: (
+    <section id="music">
+      <div className="flex flex-col gap-y-4 items-center text-center">
+        <BlurFade delay={BLUR_FADE_DELAY * 15}>
+          <div className="border bg-primary z-10 rounded-xl px-4 py-1 inline-block">
+            <span className="text-background text-sm font-medium">{DATA.sections.music.label}</span>
+          </div>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 15 + 0.05}>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{DATA.sections.music.heading}</h2>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 15 + 0.1}>
+          <p className="max-w-[600px] text-muted-foreground">{DATA.sections.music.text}</p>
+        </BlurFade>
+      </div>
+    </section>
+  ),
   contact: (
     <section id="contact">
       <BlurFade delay={BLUR_FADE_DELAY * 16}>
