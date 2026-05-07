@@ -1,194 +1,228 @@
 # How to Build a Personal Site Like This One
 
-A step-by-step SOP for spinning up your own portfolio site using the [Starfolio](https://github.com/webrating/starfolio) Astro template and deploying it free on Cloudflare Pages.
+**A no-terminal guide for total beginners.** You'll use Claude Code (the AI assistant inside the Claude desktop app) to do all the technical work. You'll spend most of your time describing what you want and letting Claude write the code.
 
-**Time required:** ~30 minutes for a basic site, plus however long you want to spend writing your bio and picking photos.
-
----
-
-## Before you start
-
-Make sure you have:
-- A **GitHub account**
-- A **Cloudflare account** (free tier is plenty, no credit card needed)
-- **Node.js 22+** installed locally ([download](https://nodejs.org/))
-- **pnpm** installed: `npm install -g pnpm`
-- A code editor (VS Code, Cursor, or whatever you like)
-- Optional but useful: **Claude Code** or another AI coding assistant if you want help editing files
+**Time required:** ~1 hour for a basic site, plus however long you want to spend writing your bio and picking photos.
 
 ---
 
-## Step 1. Get the code
+## What you need before you start
 
-Open a terminal and clone the template into a folder on your Desktop:
+1. **The Claude desktop app** installed on your Mac. Download from [claude.ai/download](https://claude.ai/download) and sign in.
+2. A **GitHub account**. Sign up free at [github.com](https://github.com).
+3. A **Cloudflare account**. Sign up free at [cloudflare.com](https://cloudflare.com). No credit card required.
+4. Your **resume** (PDF, Word, or just notes about your work history).
+5. A **headshot photo** and any other photos you want on the site (travel, hobbies, etc.).
 
-```bash
-cd ~/Desktop
-git clone https://github.com/webrating/starfolio my-site
-cd my-site
-pnpm install
-pnpm dev
-```
-
-A dev server starts at `http://localhost:4321`. Open it in your browser. You'll see the template with a fake person named Alex Mercer. That's what you'll replace.
+You don't need to know what a terminal is. You don't need to install Node, pnpm, or any other developer tools. Claude Code will install whatever's needed and run the commands for you.
 
 ---
 
-## Step 2. Customize three files
+## Step 1. Make a folder for your project
 
-Almost everything you'll change lives in these three files. **You never need to edit components.**
+Open **Finder** on your Mac. Go to your Desktop or Documents. Create a new folder. Name it something like `my-website` or `personal-site`.
 
-### a) `src/data/resume.tsx`
-Your name, bio, work history, education, skills, photos array, social links, projects.
+You can do this by right-clicking and choosing **New Folder**.
 
-Open it. Find the `DATA` object at the top. Replace each field with your info:
-- `name`, `initials`, `description`, `summary`
-- `work: [...]` (your jobs)
-- `education: [...]` (your degrees)
-- `skills: [...]` (your skills, with optional icons)
-- `contact: { email, social }` (your links)
-- `projects: [...]` (your projects)
-- `photos: [...]` (paths to your photos)
-
-Set `enabled: true` or `false` on any section under `sections: { ... }` to show or hide it.
-
-### b) `src/data/config.ts`
-Site URL, theme colors, font size, SEO meta.
-
-The most fun part is theme colors:
-1. Go to [tweakcn.com](https://tweakcn.com)
-2. Pick or design a theme you like
-3. Click **Copy** in the Theme Code panel (use **Tailwind v3** or **v4** format, either works)
-4. Paste the values into the `light` and `dark` blocks in `config.ts`, stripping `--` and camelCasing names (e.g. `--card-foreground` becomes `cardForeground`)
-
-### c) `src/styles/global.css`
-Fonts. The default is Outfit + Geist Mono. To change:
-1. Pick a variable font at [fontsource.org](https://fontsource.org/?variable=true)
-2. Install it: `pnpm add @fontsource-variable/<font-name>`
-3. Update the `@import` line and `--font-sans` value in `global.css`
+Remember where this folder lives. You'll point Claude Code at it next.
 
 ---
 
-## Step 3. Replace the placeholder assets
+## Step 2. Open the folder in Claude Code
 
-Drop your own files into the `public/` folder:
-
-| Replace | With |
-|---|---|
-| `public/picofme.png` | Your headshot. Save as `public/avatar.jpg`, then update `avatarUrl: "/avatar.jpg"` in `resume.tsx` |
-| `public/photos/photo1.jpg` to `photo9.jpg` | Your travel or hobby photos |
-| `public/favicon.svg` | Edit the SVG to show your initials or a custom logo |
-| `public/og_image.png` | The image that shows when your site is shared on social media (1200x630 px is ideal) |
-
-Anything in `public/` is served at the matching URL: `public/avatar.jpg` becomes `/avatar.jpg` on your site.
+1. Open the **Claude** desktop app.
+2. In the sidebar, look for **Claude Code** (or click the terminal-like icon).
+3. Click **Open Folder** (or **Add Project**) and pick the folder you just made.
+4. Claude Code now has access to that folder and can run commands inside it.
 
 ---
 
-## Step 4. Test locally
+## Step 3. Tell Claude Code to clone the template
 
-With `pnpm dev` running, refresh your browser. Click around, read everything, fix typos. When it looks right, do a production build to catch errors:
+Copy this and paste it as your first message to Claude Code:
 
-```bash
-pnpm build
-```
+> Please clone the Starfolio template into this folder, install the dependencies, and start the dev server so I can see it locally.
+>
+> Here's the repo: https://github.com/webrating/starfolio
+>
+> If I'm missing anything (like Node.js or pnpm), please install it for me.
 
-If that finishes without errors, you're ready to deploy.
+Claude Code will ask permission to run commands. Approve them. After a few minutes you'll see a message saying the dev server is running at `http://localhost:4321`.
+
+Open that URL in your browser. You should see the template website with a fake person named Alex Mercer. That's what you'll personalize.
 
 ---
 
-## Step 5. Push to GitHub
+## Step 4. Personalize your site (let Claude do it)
+
+This is the fun part. You'll have a conversation with Claude Code, and it will edit the files for you.
+
+### Send your resume info
+
+Drag your resume PDF into the Claude Code chat (or paste your work history as text). Then say:
+
+> Replace the placeholder data in src/data/resume.tsx with my information from this resume. Keep the section structure but use my name, jobs, education, and skills.
+
+Claude will read the resume and update `resume.tsx` with your info.
+
+### Tweak the bio and personal sections
+
+Read what Claude wrote. If you want changes, just say so:
+
+> Change "Hi, I'm Alex" to "Hi, I'm [YourFirstName]". Make the about section more personal. Mention that I love rock climbing and travel. Disable the hackathons section since I don't have any.
+
+> Add a section for [your hobby] at the bottom of the page.
+
+Be conversational. Claude will figure out where the changes go.
+
+### Pick your colors and font
+
+Open [tweakcn.com](https://tweakcn.com) in your browser. Play with the theme until you like it. Click **Theme Code**, switch to **Tailwind v3** if available (v4 also works), and copy the CSS.
+
+Paste it into Claude Code with:
+
+> Update src/data/config.ts to use this theme:
+> [paste the CSS here]
+
+For fonts, browse [fontsource.org](https://fontsource.org/?variable=true) (filter by Variable). Pick one. Tell Claude:
+
+> Change the site font to [font name]. Install the package and update src/styles/global.css.
+
+---
+
+## Step 5. Add your photos and avatar
+
+In Finder, drag your photos into the project folder. The simplest place is `src/data/` (Claude will move them where they need to go).
+
+Then say:
+
+> I added my headshot called [filename]. Use it as my avatar.
+>
+> I also added [N] travel photos. Replace the placeholder photos in the photos section with mine.
+
+Claude will move them to `public/` and update the photos array.
+
+---
+
+## Step 6. Update the favicon
+
+The favicon is the tiny icon you see in the browser tab. Tell Claude:
+
+> Change the favicon to show my initials: [your initials, e.g. "MCP"].
+
+---
+
+## Step 7. Preview and iterate
+
+Refresh `http://localhost:4321` in your browser after each change. If something looks off, just tell Claude:
+
+> The DJ section is too long. Shorten it to one line.
+>
+> Move the education section to the bottom.
+>
+> Make the photo grid show 12 photos instead of 9.
+
+Keep going until you're happy with it.
+
+---
+
+## Step 8. Push your site to GitHub
 
 ### Create a new GitHub repo
-1. Go to [github.com/new](https://github.com/new)
-2. Pick a name. **Tip:** the GitHub repo name does not affect your site URL, so just pick something descriptive (e.g. `personal-site`, `my-portfolio`)
-3. Public, no README, no .gitignore, no license
-4. Click **Create repository**
+1. Go to [github.com/new](https://github.com/new) in your browser.
+2. Pick a name. Anything is fine. The GitHub repo name does not affect your website URL. Examples: `marie-personal-site`, `marie-portfolio`.
+3. Set it to **Public**.
+4. Do not add a README, .gitignore, or license.
+5. Click **Create repository**.
 
-### Connect your local repo to GitHub
-The template clone is pointing at the original Starfolio repo. Switch it to yours:
+### Tell Claude Code to push your code
+> I just created a GitHub repo at https://github.com/[your-username]/[your-repo-name]. Please push all my code to it.
 
-```bash
-git remote set-url origin https://github.com/<your-username>/<your-repo-name>
-git add .
-git commit -m "Personalise template"
-git push -u origin master
-```
+Claude will configure the remote and push. You may be prompted to log in to GitHub the first time, follow the instructions on screen.
 
 ---
 
-## Step 6. Deploy to Cloudflare Pages
+## Step 9. Deploy to Cloudflare Pages
 
-### Create the project
-1. Sign up at [pages.cloudflare.com](https://pages.cloudflare.com) (free, no credit card)
-2. Connect your GitHub account
-3. **Important:** if Cloudflare drops you into the Workers UI, scroll to the bottom and click **"Looking to deploy Pages? Get started"**. Then click **Get started** next to **"Import an existing Git repository"**
-4. Select your repo
+This part you do in the browser yourself.
 
-### Configure the build
-Fill in these values exactly:
+1. Go to [pages.cloudflare.com](https://pages.cloudflare.com) and sign in.
+2. If Cloudflare drops you into a Workers setup screen, scroll down and click **"Looking to deploy Pages? Get started"**.
+3. Click **Get started** next to **"Import an existing Git repository"**.
+4. Connect your GitHub account, then pick the repo you just created.
+
+### Fill in the build settings exactly like this:
 
 | Field | Value |
 |---|---|
-| **Project name** | This becomes your URL: `<project-name>.pages.dev`. Pick wisely, it can't be changed without recreating the project. |
+| **Project name** | This becomes your URL: `<project-name>.pages.dev`. Pick something you like. **Note:** you can't change this later without recreating the project. |
 | **Production branch** | `master` |
 | **Framework preset** | **Astro** |
 | **Build command** | `pnpm build` |
 | **Build output directory** | `dist` |
-| **Root directory** | (leave empty) |
 
-### Add the environment variable
-This is the one thing that almost everyone misses and it will make your build fail:
-
-Click **Environment variables (advanced)** and add:
+### Click "Environment variables (advanced)" and add this:
 
 | Variable | Value |
 |---|---|
 | `NODE_VERSION` | `22` |
 
-Without this, Cloudflare uses an older Node version and pnpm 11 will fail.
+This step is critical. Without it the build will fail.
 
-### Deploy
-Click **Save and Deploy**. Cloudflare runs `pnpm install` and `pnpm build`. Takes ~2 minutes. Your site goes live at `https://<project-name>.pages.dev`.
+### Click Save and Deploy.
 
----
-
-## Step 7. Future updates
-
-From now on, updating your site is just three commands:
-
-```bash
-git add .
-git commit -m "what I changed"
-git push
-```
-
-Cloudflare detects the push within ~30 seconds and redeploys automatically.
+Cloudflare runs the build (takes ~2 minutes). When it's done, your site is live at `https://<project-name>.pages.dev`.
 
 ---
 
-## Gotchas worth knowing
+## Step 10. Make changes anytime
 
-**File size limit.** Cloudflare Pages rejects any file over 25MB. If you add a video, compress it first:
-```bash
-brew install ffmpeg
-ffmpeg -i input.mp4 -vf "scale='min(720,iw)':-2" -crf 28 -preset slow -movflags +faststart output.mp4
-```
-This usually shrinks a phone screen recording from ~30MB down to under 2MB with no visible quality loss.
+From now on, whenever you want to update your site:
 
-**Cloudflare URL is locked at project creation.** If you want a different `.pages.dev` subdomain, you have to delete the Cloudflare project and recreate it with a new name. The GitHub repo name is independent.
+1. Open Claude Code
+2. Tell it what you want changed
+3. When you're happy, tell Claude:
+   > Commit and push these changes.
 
-**Don't commit secrets.** Don't put API keys, passwords, or personal documents (resume PDFs, etc.) in the repo. Use a `.gitignore` to keep them out.
-
-**Custom domain.** When you're ready to use a real domain instead of `.pages.dev`, buy one (Cloudflare sells them at cost) and add it under your project's **Custom domains** tab. Cloudflare handles SSL automatically.
+Cloudflare detects the push within ~30 seconds and redeploys automatically. No clicks needed.
 
 ---
 
-## Troubleshooting
+## Common questions and gotchas
 
-**Build fails with `pnpm: command not found`** → make sure your project name uses pnpm and `NODE_VERSION` env var is set to 22.
+**Q: Can I add a video?**
+Yes, but Cloudflare rejects files over 25MB. If your video is bigger, tell Claude:
+> Compress this video to under 25MB.
 
-**Build fails with `ERR_PNPM_IGNORED_BUILDS`** → this is a pnpm security feature. The Cloudflare build environment usually handles it fine; if it doesn't, add `onlyBuiltDependencies: ["esbuild", "sharp"]` to the `pnpm` block in your `package.json`.
+Claude will use ffmpeg to shrink it (a 30MB phone screen recording usually compresses to under 2MB with no visible quality loss).
 
-**Video doesn't autoplay** → make sure it's muted. Browsers block autoplay with sound. The project card component already handles this.
+**Q: I want a custom domain (like marieperry.com)**
+Buy one. Cloudflare sells them at cost in the **Domain Registration** section of the dashboard. Then in your Pages project, click **Custom domains** and add it. Cloudflare handles SSL for free.
 
-**Theme looks wrong** → the `oklch()` color values need to be valid. If you copied a Tailwind v4 theme, the values should drop into the `light` / `dark` blocks unchanged. Don't include the `--` prefix.
+**Q: I picked a bad project name on Cloudflare. How do I change it?**
+You can't rename a Pages project's URL. To change it, delete the project in Cloudflare (it just removes the deployment, your code stays safe on GitHub) and create a new one with the new name.
+
+**Q: I'm seeing an error in the Cloudflare deploy log**
+Copy the error and paste it to Claude Code:
+> The Cloudflare build failed. Here's the error: [paste]
+> Please fix it.
+
+**Q: Should I commit my resume PDF or other personal docs?**
+No. Tell Claude:
+> Add `*.pdf` and any personal documents to .gitignore so they don't get pushed publicly.
+
+**Q: I want to share this guide with a friend**
+This file (`make-your-own.md`) is in your repo. They can read it on GitHub or you can send them the link.
+
+---
+
+## What Claude Code is doing under the hood
+
+If you're curious. You don't need to understand any of this to use the guide.
+
+- **Cloning** copies the template code from GitHub to your folder.
+- **`pnpm install`** downloads all the libraries the site uses.
+- **`pnpm dev`** runs a local server so you can preview changes instantly.
+- **`pnpm build`** packages everything into static HTML/CSS/JS files for production.
+- **`git push`** uploads your code to GitHub.
+- **Cloudflare** watches your GitHub repo, re-runs `pnpm build` whenever you push, and serves the result on a global CDN.
