@@ -131,6 +131,27 @@ const sectionComponents: Record<string, React.ReactNode> = {
         <BlurFade delay={BLUR_FADE_DELAY * 15 + 0.1}>
           <p className="max-w-[600px] text-muted-foreground">{DATA.sections.music.text}</p>
         </BlurFade>
+        {DATA.sections.music.image && (
+          <BlurFade delay={BLUR_FADE_DELAY * 15 + 0.15}>
+            <img
+              src={DATA.sections.music.image}
+              alt="DJ-ing"
+              className="rounded-xl object-cover max-h-96 w-auto mx-auto"
+            />
+          </BlurFade>
+        )}
+        {DATA.sections.music.mixUrl && (
+          <BlurFade delay={BLUR_FADE_DELAY * 15 + 0.2}>
+            <a
+              href={DATA.sections.music.mixUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              {DATA.sections.music.mixLabel}
+            </a>
+          </BlurFade>
+        )}
       </div>
     </section>
   ),

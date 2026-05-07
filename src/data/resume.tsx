@@ -41,6 +41,9 @@ export const DATA = {
       label: "Music",
       heading: "DJ-ing",
       text: "When I'm not at work or outside, I'm probably mixing. DJ-ing is my creative outlet — somewhere between a meditation and a party. Mostly house and disco, occasionally something weirder.",
+      image: "/dj.jpg",
+      mixUrl: "https://soundcloud.com/marie-christine-perry/dj-mvrie-live-hallokween",
+      mixLabel: "Listen to my latest mix on SoundCloud →",
     },
     contact: {
       order: 9, enabled: true,
