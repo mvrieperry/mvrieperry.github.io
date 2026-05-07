@@ -30,3 +30,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Personal documents — keep out of repo
+src/data/*.pdf
