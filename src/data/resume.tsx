@@ -245,7 +245,7 @@ export const DATA = {
       dates: "2025",
       active: true,
       description:
-        "A small app to plan out my garden each season. Tracks what I'm growing, when to start seeds, and what's working (and what very much isn't).",
+        "A free, browser-based garden planning tool for designing raised beds, ground areas, and container gardens, with plant placement, companion planting guidance, a materials shopping list, and more. No sign-up. No install. No internet required after load.",
       technologies: ["HTML", "JavaScript"],
       links: [
         {
