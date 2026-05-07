@@ -222,6 +222,24 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "The Know-It-All Postdoc",
+      href: "https://github.com/mvrieperry/the-knowitall-postdoc",
+      dates: "2026",
+      active: true,
+      description:
+        "A Gradio chatbot AI agent that plays a slightly burnt-out senior postdoc. Three tools: live PubMed search via the Entrez API, semantic search over a local ChromaDB collection of ~1000 AI / drug-discovery abstracts, and a bioRxiv preprint search via Europe PMC. Includes persona-based guardrails that block off-topic questions before any LLM call.",
+      technologies: ["Python", "Gradio", "ChromaDB", "OpenAI API", "Entrez API", "Europe PMC"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/mvrieperry/the-knowitall-postdoc",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
       title: "Garden Planner",
       href: "https://github.com/mvrieperry/garden-planner",
       dates: "2025",
