@@ -3,7 +3,7 @@ export const CONFIG = {
   // Site Settings
   // ---------------------------------------------------------------------------
   site: {
-    url: "https://personal-site-6xa.pages.dev",
+    url: "https://marieperry.ca",
     locale: "en_US",
     twitterHandle: "",
   },
